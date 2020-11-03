@@ -1,0 +1,267 @@
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card strpied-tabled-with-hover col-5">
+                    <div class="card-header ">
+                        <div class="row">
+                            <div class="col-9">
+                                <h4 class="card-title">DANH MỤC</h4>
+                            </div>
+                            <div class="col-3">
+                                <form action="/admin/themkhoahoc/adddanhmuc" method="post">
+                                    <div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog"
+                                        aria-labelledby="myModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header text-center">
+                                                    <h4 class="modal-title w-100 font-weight-bold">Thêm danh mục</h4>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body mx-3">
+                                                    <div class="md-form mb-5">
+
+                                                        <input type="text" name="name" id="name"
+                                                            class="form-control validate">
+                                                        <label data-error="wrong" data-success="right"
+                                                            for="defaultForm-email">Tên Danh Mục</label>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer d-flex justify-content-center">
+                                                    <button class="btn btn-default">Thêm</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div class="text-center">
+                                    <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal"
+                                        data-target="#modalLoginForm">Create</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p class="card-category">Here is a subtitle for this table</p>
+                    </div>
+                    <div class="card-body table-full-width table-responsive ">
+
+                        <table class="table table-hover">
+                            <thead>
+                                <th>ID</th>
+                                <th>Name</th>
+                            </thead>
+                            <tbody>
+                                {{#each danhmuc}}
+                                <tr>
+                                    <td>{{danhmucid}}</td>
+                                    <td><a class="text-dark" href="?danhmucid={{danhmucid}}">{{ten}}</a></td>
+                                    <td>
+                                        <div class="modal fade" id="addkh{{danhmucid}}" tabindex="-1" role="dialog"
+                                            aria-labelledby="myModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <form action="/admin/themkhoahoc/addkhoahoc" method="POST"
+                                                    enctype="multipart/form-data">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header text-center">
+                                                            <h4 class="modal-title w-100 font-weight-bold">Thêm Khoá học
+                                                                {{ten}}
+                                                            </h4>
+
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body mx-3">
+                                                            <div class="md-form md-5">
+                                                                <label data-error="wrong" data-success="right"
+                                                                    for="orangeForm-name">Tên khoá học</label>
+                                                                <input type="text" name="name"
+                                                                    class="form-control validate">
+                                                            </div>
+                                                            <div class="md-form md-5">
+                                                                <label data-error="wrong" data-success="right"
+                                                                    for="orangeForm-email">GIÁ</label>
+                                                                <input type="number" name="gia"
+                                                                    class="form-control validate">
+                                                            </div>
+                                                            <div class="md-form md-5">
+
+                                                                <div class="form-group">
+                                                                    <label for="giaovien">GIÁO
+                                                                        VIÊN</label>
+                                                                    <select class="form-control" name="giaovien"
+                                                                        id="giaovien">
+                                                                        {{#each ../giaovien}}
+                                                                        <option value="{{teacherid}}">{{ten}}</option>
+                                                                        {{/each}}
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="md-form md-5">
+                                                                <label data-error="wrong" data-success="right"
+                                                                    for="orangeForm-email">CHI TIẾT</label>
+                                                                <input type="number" name="chitiet"
+                                                                    class="form-control validate">
+                                                            </div>
+                                                            <div class="md-form md-5">
+                                                                <label data-error="wrong" data-success="right"
+                                                                    for="orangeForm-email">TỔNG QUAN</label>
+                                                                <textarea name="tongquan"
+                                                                    class="md-textarea form-control"
+                                                                    rows="5"></textarea>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <input type="file" name="image"
+                                                                    class="input-group input-file" />
+                                                            </div>
+                                                            <input type="hidden" id="danhmucid" name="danhmucid"
+                                                                value="{{danhmucid}}">
+                                                        </div>
+                                                        <div class="modal-footer d-flex justify-content-center">
+                                                            <button type="submit"
+                                                                class="btn btn-deep-orange">THÊM</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+
+                                        <div class="text-center">
+                                            {{!-- <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal"
+                                                data-target="#modalRegisterForm"></a> --}}
+                                            <i class="fa fa-plus" data-toggle="modal" data-target="#addkh{{danhmucid}}"
+                                                aria-hidden="true"></i>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                {{/each}}
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="card card-plain table-plain-bg">
+                    <div class="card-header ">
+                        <h4 class="card-title">KHOÁ HỌC</h4>
+                        <p class="card-category">Here is a subtitle for this table</p>
+                    </div>
+
+                    <div class="card-body table-full-width table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <th></th>
+                                <th>ID</th>
+                                <th>Tên khoá học</th>
+                                <th>Giá</th>
+                                <th>Chi Tiết</th>
+                                <th>Giáo Viên</th>
+                                <th></th>
+                            </thead>
+                            <tbody>
+                                {{#each courses}}
+                                <tr>
+                                    <td> <a href="?danhmucid={{danhmucid}}&courseid={{courseid}}"><img
+                                                src="{{imagepath}}" width="70" height="70"></a> </td>
+                                    <td>{{courseid}}</td>
+                                    <td class="admin_hiden">{{ten}}</td>
+                                    <td>{{gia}}</td>
+                                    <td>{{chitiet}}</td>
+                                    <td>{{teacherid}}</td>
+                                    <td>
+                                        <div class="modal fade" id="addbh{{courseid}}" tabindex="-1" role="dialog"
+                                            aria-labelledby="myModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <form action="/admin/themkhoahoc/addbaihoc" method="POST">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header text-center">
+                                                            <h4 class="modal-title w-100 font-weight-bold">Thêm bài học
+                                                                vào
+                                                                {{ten}}
+                                                            </h4>
+
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body mx-3">
+                                                            <div class="md-form md-5">
+                                                                <label data-error="wrong" data-success="right"
+                                                                    for="orangeForm-name">Nội dung</label>
+                                                                <input type="text" name="nd"
+                                                                    class="form-control validate">
+                                                            </div>
+                                                            <div class="md-form md-5">
+                                                                <label data-error="wrong" data-success="right"
+                                                                    for="orangeForm-email">link</label>
+                                                                <input type="text" name="link"
+                                                                    class="form-control validate">
+                                                            </div>
+                                                            <input type="hidden" id="courseid" name="courseid"
+                                                                value="{{courseid}}">
+                                                        </div>
+                                                        <div class="modal-footer d-flex justify-content-center">
+                                                            <button type="submit"
+                                                                class="btn btn-deep-orange">THÊM</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+
+                                        <div class="text-center">
+                                            {{!-- <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal"
+                                                data-target="#modalRegisterForm"></a> --}}
+                                            <i class="fa fa-plus" data-toggle="modal" data-target="#addbh{{courseid}}"
+                                                aria-hidden="true"></i>
+                                        </div>
+                                    </td>
+                                </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="card card-plain table-plain-bg">
+                    <div class="card-header ">
+                        <h4 class="card-title">BÀI HỌC</h4>
+                        <p class="card-category">Here is a subtitle for this table</p>
+                    </div>
+                    <div class="card-body table-full-width table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <th>sessionid</th>
+                                <th>chuong</th>
+                                <th>noidung</th>
+                                <th>link</th>
+                                <th></th>
+                            </thead>
+                            <tbody>
+                                {{#each baihoc}}
+                                <tr>
+                                    <td>{{sessionid}}</td>
+                                    <td>{{chuong}}</td>
+                                    <td>{{noidung}}</td>
+                                    <td><a class="text-dark" href="{{link}}">{{link}}</a></td>
+                                    <td></td>
+
+                                </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

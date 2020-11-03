@@ -1,0 +1,106 @@
+
+{{#each user}}
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Edit Profile</h4>
+                    </div>
+                    <div class="card-body">
+                        <form method="post" action="/admin/user/{{usernameid}}/updateuser" enctype="multipart/form-data">
+                            <div class="row">
+                                <div class="col-md-4 pl-1">
+                                    <div class="form-group">
+                                        <label>Username</label>
+                                        <input type="text" disabled class="form-control" name="username" placeholder="Username" value="{{usernameid}}">
+                                    </div>
+                                </div>
+                                <div class="col-md-5 pr-1">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Email address</label>
+                                        <input type="email" name="gmail" id="gmail" class="form-control" placeholder="Gmail"
+                                            value="{{gmail}}">
+                                    </div>
+                                </div>
+                                <div class="col-md-3 pr-1">
+                                    <div class="form-group">
+                                        <label>is admin</label><br>
+                                        <select class="custom-select" name="isadmin"
+                                            aria-label="Example select with button addon">
+                                            <option value="{{#if isadmin}}TRUE{{else}}FALSE {{/if}}">{{#if isadmin}}TRUE{{else}}FALSE{{/if}}</option>
+                                            <option value="{{#if isadmin}}FALSE{{else}}TRUE {{/if}}">{{#if isadmin}}FALSE{{else}}TRUE{{/if}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-5 pr-1">
+                                    <div class="form-group">
+                                        <label>First Name</label>
+                                        <input type="text" name="hoten" class="form-control" placeholder="Họ và Tên"
+                                            value="{{ten}}">
+                                    </div>
+                                </div>
+                                <div class="col-md-3 pl-1">
+                                    <div class="form-group">
+                                        <label>hoàn thành</label>
+                                        <input type="text" class="form-control" disabled
+                                            placeholder="Số khoá học hoàn thành" value="{{sokhoahochoanthanh}} ">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <input type="file" name="image" class="input-group input-file" />
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-info btn-fill pull-right">Update Profile</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-user">
+                    <div class="card-image">
+                        <img src="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400"
+                            alt="...">
+                    </div>
+                    <div class="card-body">
+                        <div class="author">
+                            <a href="#">
+                                <img class="avatar border-gray" src="{{imagepath}}" alt="...">
+                                <h5 class="title"></h5>
+                            </a>
+                            <p class="description">
+                                
+                            </p>
+                        </div>
+                        <p class="description text-center">
+                        </p>
+                    </div>
+                    <hr>
+                    <div class="button-container mr-auto ml-auto">
+                        <button href="#" class="btn btn-simple btn-link btn-icon">
+                            <i class="fa fa-facebook-square"></i>
+                        </button>
+                        <button href="#" class="btn btn-simple btn-link btn-icon">
+                            <i class="fa fa-twitter"></i>
+                        </button>
+                        <button href="#" class="btn btn-simple btn-link btn-icon">
+                            <i class="fa fa-google-plus-square"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+</script>
+{{/each}}

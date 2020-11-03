@@ -1,0 +1,79 @@
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Thêm Danh Mục</h4>
+                            </div>
+                            <div class="card-body">
+                                <form method="post" action="/admin/themkhoahoc/adddanhmuc">
+                                    <div class="row">
+                                        <div class="col-md-10 px-1">
+                                            <div class="form-group">
+                                                <label>Tên Danh Mục</label>
+                                                <input type="text" class="form-control" name="name" id="name"
+                                                    placeholder="Tên danh mục" >
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-info btn-fill pull-right">Add</button>
+                                    <div class="clearfix"></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Thêm Môn Học</h4>
+                            </div>
+                            <div class="card-body">
+                                <form method="post" action="/admin/themkhoahoc/addkhoahoc">
+                                    <div class="row">
+                                        <div class="col-md-10 px-1">
+                                            <div class="form-group">
+                                                <label>Tên môn học</label>
+                                                <input type="text" class="form-control" name="nameMonHoc"
+                                                    placeholder="Tên môn học" value="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-info btn-fill pull-right">Add</button>
+                                    <div class="clearfix"></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Thêm khoá học</h4>
+                    </div>
+                    <div class="card-body">
+                        <form method="post" action="/admin/adddanhmuc" enctype="multipart/form-data">
+                            <div class="row">
+                                <div class="col-md-10 px-1">
+                                    <div class="form-group">
+                                        <label>Tên Danh Mục</label>
+                                        <input type="text" class="form-control" name="nameDanhMuc"
+                                            placeholder="Tên danh mục" value="">
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <button type="submit" class="btn btn-info btn-fill pull-right">Add</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

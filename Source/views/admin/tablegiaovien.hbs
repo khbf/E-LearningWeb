@@ -1,0 +1,65 @@
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card strpied-tabled-with-hover">
+                    <div class="card-header ">
+                        <div class="row card-title ">
+                            <div class="col-md-8">
+                                <h4 class="card-title">GIÁO VIÊN <a href="/admin/user"><img src="/img/add.png"
+                                            width="25" height="25"></a>
+                                    <div class="md-form active-purple active-purple-2 mb-3"></div>
+                                </h4>
+                            </div>
+                            <div class="col-md-4">
+                                <form class="form-inline my-2 my-lg-0">
+                                    <input class="form-control mr-sm-2" type="search" placeholder="Search"
+                                        aria-label="Search">
+                                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-body table-full-width table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+
+                                <th></th>
+                                <th>IDGIAOVIEN</th>
+                                <th>Tên giáo viên</th>
+                                <th>chuyên môn</th>
+                                <th>Edit</th>
+
+                            </thead>
+                            <tbody>
+                                {{#each giaovien}}
+                                <tr>
+                                    <td><img src="{{imagepath}}" width="30" height="30"></td>
+                                    <td>{{teacherid}}</td>
+                                    <td>{{ten}}</td>
+                                    <td>{{chuyenmon}}</td>
+                                    <td>
+                                        <a href="/admin/teacher/{{teacherid}}"><img src="/img/edit.png" width="25"
+                                                height="25"></a>
+
+                                    </td>
+                                </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+
+                        {{!-- <nav aria-label="Page navigation example">
+                                <ul class="pagination justify-content-center" id="paget">
+                                    <li class="page-item"><a class="page-link" href="?pageteacher=1">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="?pageteacher=2">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="?pageteacher=3">3</a></li>
+                                    <li class="page-item"><a class="page-link" href="?pageteacher=4">4</a></li>
+                                </ul>
+                            </nav> --}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+.admin_hiden {
+
+    width: 300px;
+    background-color: #f0f0f0;
+    margin: 10px;
+    padding:10px;
+    line-height: 25px;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}

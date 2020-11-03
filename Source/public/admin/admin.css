@@ -1,0 +1,11 @@
+.admin_hiden {
+    width: 700px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; 
+    line-height: 25px;
+    -webkit-line-clamp: 1;
+    height: 50px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}

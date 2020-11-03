@@ -1,0 +1,353 @@
+<link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
+<link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="plugins/colorbox/colorbox.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
+<link rel="stylesheet" type="text/css" href="styles/courses.css">
+<link rel="stylesheet" type="text/css" href="styles/courses_responsive.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script src="/giohang.js"></script>
+<!-- Menu -->
+
+<div class="menu d-flex flex-column align-items-end justify-content-start text-right menu_mm trans_400">
+	<div class="menu_close_container">
+		<div class="menu_close">
+			<div></div>
+			<div></div>
+		</div>
+	</div>
+	<div class="search">
+		<form action="#" class="header_search_form menu_mm">
+			<input type="search" class="search_input menu_mm" placeholder="Search" required="required">
+			<button class="header_search_button d-flex flex-column align-items-center justify-content-center menu_mm">
+				<i class="fa fa-search menu_mm" aria-hidden="true"></i>
+			</button>
+		</form>
+	</div>
+	<nav class="menu_nav">
+		<ul class="menu_mm">
+			<li class="menu_mm"><a href="/index">Home</a></li>
+			<li class="menu_mm"><a href="/about">About</a></li>
+			<li class="menu_mm"><a href="/courses">Courses</a></li>
+			<li class="menu_mm"><a href="/contact">Contact</a></li>
+		</ul>
+	</nav>
+</div>
+
+
+
+<!-- Home -->
+
+<div class="home">
+	<div class="breadcrumbs_container">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="breadcrumbs">
+						<ul>
+							<li><a href="/index">Home</a></li>
+							<li>Courses</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Courses -->
+
+<div class="courses">
+	<div class="container">
+		<div class="row">
+
+			<!-- Courses Main Content -->
+			<div class="col-lg-8">
+				<div class="courses_search_container">
+					<form action="/courses" id="courses_search_form"
+						class="courses_search_form d-flex flex-row align-items-center justify-content-start">
+						<input type="text" name="search" class="form-control" placeholder="Search Courses"
+							required="required">
+						<button action="submit" class="courses_search_button ml-auto">search now</button>
+					</form>
+				</div>
+				<div class="courses_container">
+					<div class="row courses_row">
+
+						<!-- Course -->
+
+						{{#each courses}}
+						<div class="col-lg-6 course_col">
+							<div class="course">
+								<div class="course_image"><img src="{{image}}" style="width: 350px ;height: 210px"
+										alt=""></div>
+								<div class="course_body">
+									<h3 class="course_title cat"><a href="/courses/{{courseid}}">{{tenkh}}</a></h3>
+									<div class="course_teacher">{{tengv}}</div>
+									<div class="course_text">
+										<p class="shortcut">{{tq}}</p>
+									</div>
+								</div>
+								<div class="course_footer">
+									<div
+										class="course_footer_content d-flex flex-row align-items-center justify-content-start">
+										<div class="course_info">
+											<i class="fa fa-graduation-cap" aria-hidden="true"></i>
+											<span>10 Student</span>
+										</div>
+										<div class="course_info">
+											<i class="fa fa-star" aria-hidden="true"></i>
+											<span>5 Ratings</span>
+										</div>
+										<div class="course_price ml-auto">${{gia}}</div>
+									</div>
+								</div>
+								<div class="form-row text-center">
+									<div class="col-12"><button type="button" class="btn add-to-cart" data-id="{{courseid}}">Add to Cart</button></div>
+								</div>
+							</div>
+						</div>
+						{{/each}}
+
+
+					</div>
+					<div class="row pagination_row">
+						<div class="col">
+							<div class="pagination_container d-flex flex-row align-items-center justify-content-start">
+
+								<ul class="pagination">
+									<li class="page-item disabled">
+										<a class="page-link" href="#" tabindex="-1">Previous</a></li>
+									<li class="page-item"><a class="page-link"
+											href="/courses?page=1{{#if categoryid}} &category= {{categoryid}} {{/if}}{{#if show}} &show={{show}}{{/if}}">1</a>
+									</li>
+									<li class="page-item"><a class="page-link"
+											href="/courses?page=2{{#if categoryid}}&category={{categoryid}}{{/if}}{{#if show}} &show={{show}}{{/if}}">2</a>
+									</li>
+									<li class="page-item"><a class="page-link"
+											href="/courses?page=3{{#if categoryid}}&category={{categoryid}}{{/if}}{{#if show}} &show={{show}}{{/if}}">3</a>
+									</li>
+									<li class="page-item"><a class="page-link"
+											href="/courses?page=4{{#if categoryid}}&category={{categoryid}}{{/if}}{{#if show}} &show={{show}}{{/if}}">Next</a>
+									</li>
+
+								</ul>
+								<div class="courses_show_container ml-auto clearfix">
+									<div class="courses_show_text">Showing <span class="courses_showing">1-6</span> of
+										<span class="courses_total">26</span> results:</div>
+									<div class="courses_show_content">
+										<span>Show: </span>
+										<form
+											action="/courses?{{#if pagenum}}page={{pagenum}}{{/if}} {{#if categoryid}}& category = {{categoryid}}{{/if}}"
+											method="POST">
+											<select id="courses_show_select" class="courses_show_select" name="value">
+												<option value="6">06</option>
+												<option value="12">12</option>
+												<option value="24">24</option>
+												<option value="36">36</option>
+											</select>
+											<input name="cateid" value="{{categoryid}}" type="hidden">
+											<input name="pagenum" value="{{pagenum}}" type="hidden">
+											<button type="submit"> CHON </button>
+										</form>
+
+
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Courses Sidebar -->
+			<div class="col-lg-4">
+				<div class="sidebar">
+
+					<!-- Categories -->
+					<div class="sidebar_section">
+						<div class="sidebar_section_title">Categories</div>
+						<div class="sidebar_categories">
+							<ul>
+								{{#each categories}}
+								<li><a href="/courses?category={{danhmucid}}">{{ten}}</a></li>
+								{{/each}}
+
+							</ul>
+						</div>
+					</div>
+
+					<!-- Latest Course -->
+					<div class="sidebar_section">
+						<div class="sidebar_section_title">Latest Courses</div>
+						<div class="sidebar_latest">
+
+							<!-- Latest Course -->
+							<div class="latest d-flex flex-row align-items-start justify-content-start">
+								<div class="latest_image">
+									<div><img src="images/latest_1.jpg" alt=""></div>
+								</div>
+								<div class="latest_content">
+									<div class="latest_title"><a href="course.html">How to Design a Logo a Beginners
+											Course</a></div>
+									<div class="latest_price">Free</div>
+								</div>
+							</div>
+
+							<!-- Latest Course -->
+							<div class="latest d-flex flex-row align-items-start justify-content-start">
+								<div class="latest_image">
+									<div><img src="images/latest_2.jpg" alt=""></div>
+								</div>
+								<div class="latest_content">
+									<div class="latest_title"><a href="course.html">Photography for Beginners
+											Masterclass</a></div>
+									<div class="latest_price">$170</div>
+								</div>
+							</div>
+
+							<!-- Latest Course -->
+							<div class="latest d-flex flex-row align-items-start justify-content-start">
+								<div class="latest_image">
+									<div><img src="images/latest_3.jpg" alt=""></div>
+								</div>
+								<div class="latest_content">
+									<div class="latest_title"><a href="course.html">The Secrets of Body Language</a>
+									</div>
+									<div class="latest_price">$220</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+					<!-- Gallery -->
+					<div class="sidebar_section">
+						<div class="sidebar_section_title">Instagram</div>
+						<div class="sidebar_gallery">
+							<ul
+								class="gallery_items d-flex flex-row align-items-start justify-content-between flex-wrap">
+								<li class="gallery_item">
+									<div
+										class="gallery_item_overlay d-flex flex-column align-items-center justify-content-center">
+										+</div>
+									<a class="colorbox" href="images/gallery_1_large.jpg">
+										<img src="images/gallery_1.jpg" alt="">
+									</a>
+								</li>
+								<li class="gallery_item">
+									<div
+										class="gallery_item_overlay d-flex flex-column align-items-center justify-content-center">
+										+</div>
+									<a class="colorbox" href="images/gallery_2_large.jpg">
+										<img src="images/gallery_2.jpg" alt="">
+									</a>
+								</li>
+								<li class="gallery_item">
+									<div
+										class="gallery_item_overlay d-flex flex-column align-items-center justify-content-center">
+										+</div>
+									<a class="colorbox" href="images/gallery_3_large.jpg">
+										<img src="images/gallery_3.jpg" alt="">
+									</a>
+								</li>
+								<li class="gallery_item">
+									<div
+										class="gallery_item_overlay d-flex flex-column align-items-center justify-content-center">
+										+</div>
+									<a class="colorbox" href="images/gallery_4_large.jpg">
+										<img src="images/gallery_4.jpg" alt="">
+									</a>
+								</li>
+								<li class="gallery_item">
+									<div
+										class="gallery_item_overlay d-flex flex-column align-items-center justify-content-center">
+										+</div>
+									<a class="colorbox" href="images/gallery_5_large.jpg">
+										<img src="images/gallery_5.jpg" alt="">
+									</a>
+								</li>
+								<li class="gallery_item">
+									<div
+										class="gallery_item_overlay d-flex flex-column align-items-center justify-content-center">
+										+</div>
+									<a class="colorbox" href="images/gallery_6_large.jpg">
+										<img src="images/gallery_6.jpg" alt="">
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<!-- Tags -->
+					<div class="sidebar_section">
+						<div class="sidebar_section_title">Tags</div>
+						<div class="sidebar_tags">
+							<ul class="tags_list">
+								<li><a href="#">creative</a></li>
+								<li><a href="#">unique</a></li>
+								<li><a href="#">photography</a></li>
+								<li><a href="#">ideas</a></li>
+								<li><a href="#">wordpress</a></li>
+								<li><a href="#">startup</a></li>
+							</ul>
+						</div>
+					</div>
+
+					<!-- Banner -->
+					<div class="sidebar_section">
+						<div
+							class="sidebar_banner d-flex flex-column align-items-center justify-content-center text-center">
+							<div class="sidebar_banner_background" style="background-image:url(images/banner_1.jpg)">
+							</div>
+							<div class="sidebar_banner_overlay"></div>
+							<div class="sidebar_banner_content">
+								<div class="banner_title">Free Book</div>
+								<div class="banner_button"><a href="#">download now</a></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Newsletter -->
+
+<div class="newsletter">
+	<div class="newsletter_background parallax-window" data-parallax="scroll" data-image-src="images/newsletter.jpg"
+		data-speed="0.8"></div>
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<div
+					class="newsletter_container d-flex flex-lg-row flex-column align-items-center justify-content-start">
+
+					<!-- Newsletter Content -->
+					<div class="newsletter_content text-lg-left text-center">
+						<div class="newsletter_title">sign up for news and offers</div>
+						<div class="newsletter_subtitle">Subcribe to lastest smartphones news & great deals we offer
+						</div>
+					</div>
+
+					<!-- Newsletter Form -->
+					<div class="newsletter_form_container ml-lg-auto">
+						<form action="#" id="newsletter_form"
+							class="newsletter_form d-flex flex-row align-items-center justify-content-center">
+							<input type="email" class="newsletter_input" placeholder="Your Email" required="required">
+							<button type="submit" class="newsletter_button">subscribe</button>
+						</form>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

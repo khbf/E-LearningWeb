@@ -1,0 +1,90 @@
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Thêm User</h4>
+                    </div>
+                    <div class="card-body">
+                        <form method="post" action="/admin/user" enctype="multipart/form-data">
+                            <div class="row">
+                                <div class="col-md-6 px-1">
+                                    <div class="form-group">
+                                        <label>Username</label>
+                                        <input type="text" class="form-control" name="username" placeholder="Username" value="">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 px-1">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Email address</label>
+                                        <input type="email"  name="gmail" class="form-control" placeholder="Gmail" value="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 pr-1">
+                                    <div class="form-group">
+                                        <label>Password</label>
+                                        <input type="password" name="password"class="form-control" placeholder="Password" value="">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 pr-1">
+                                    <div class="form-group">
+                                        <label>First Name</label>
+                                        <input type="text" name="hoten" class="form-control" placeholder="Họ và Tên" value="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <input type="file" name="image" class="input-group input-file" />
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-info btn-fill pull-right">Add</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-user">
+                    <div class="card-image">
+                        <img src="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400"
+                            alt="...">
+                    </div>
+                    <div class="card-body">
+                        <div class="author">
+                            <a href="#">
+                                <img class="avatar border-gray" src="./assets/img/faces/face-3.jpg" alt="...">
+                                <h5 class="title">Mike Andrew</h5>
+                            </a>
+                            <p class="description">
+                                michael24
+                            </p>
+                        </div>
+                        <p class="description text-center">
+                            "Lamborghini Mercy
+                            <br> Your chick she so thirsty
+                            <br> I'm in that two seat Lambo"
+                        </p>
+                    </div>
+                    <hr>
+                    <div class="button-container mr-auto ml-auto">
+                        <button href="#" class="btn btn-simple btn-link btn-icon">
+                            <i class="fa fa-facebook-square"></i>
+                        </button>
+                        <button href="#" class="btn btn-simple btn-link btn-icon">
+                            <i class="fa fa-twitter"></i>
+                        </button>
+                        <button href="#" class="btn btn-simple btn-link btn-icon">
+                            <i class="fa fa-google-plus-square"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

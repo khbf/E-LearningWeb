@@ -1,0 +1,94 @@
+<title>Unicat</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Unicat project">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/styles/bootstrap4/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/plugins/colorbox/colorbox.css">
+    <link href="/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="/plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="/plugins/OwlCarousel2-2.2.1/animate.css">
+    <link rel="stylesheet" type="text/css" href="/plugins/video-js/video-js.css">
+
+    <!-- thu muc styles -->
+    <link rel="stylesheet" type="text/css" href="/styles/main_styles.css">
+    <link rel="stylesheet" type="text/css" href="/styles/responsive.css">
+    <link rel="stylesheet" type="text/css" href="/styles/courses_responsive.css">
+    <link rel="stylesheet" type="text/css" href="/styles/courses.css">
+    <link rel="stylesheet" type="text/css" href="/styles/course_responsive.css">
+    <link rel="stylesheet" type="text/css" href="/styles/course.css">
+    <link rel="stylesheet" type="text/css" href="/styles/contact_responsive.css">
+    <link rel="stylesheet" type="text/css" href="/styles/contact.css">
+    <link rel="stylesheet" type="text/css" href="/styles/blog_single_responsive.css">
+    <link rel="stylesheet" type="text/css" href="/styles/blog_single.css">
+    <link rel="stylesheet" type="text/css" href="/styles/blog_responsive.css">
+    <link rel="stylesheet" type="text/css" href="/styles/blog.css">
+    <link rel="stylesheet" type="text/css" href="/styles/about_responsive.css">
+    <link rel="stylesheet" type="text/css" href="/styles/about.css"> 
+<!--================Register Box Area =================-->
+<section class="login_box_area section-margin">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="login_box_img" style="height: 800px">
+                    <div class="hover">
+                        <h4>Already have an account?</h4>
+                        <p>There are advances being made in science and technology everyday, and a good example of this
+                            is the</p>
+                        <a class="button button-account" href="/login">Login Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="login_form_inner register_form_inner" style="height: 800px">
+                    <h3>Create an account</h3>
+                    <form class="row login_form" action="/register" id="register_form" method="post" enctype="multipart/form-data">
+                        {{#if message}}
+                        <div class="col-md-12 form-group alert {{type}}">
+                            <strong>{{message}}</strong>
+                        </div>
+                        {{/if}}
+                        <div class="col-md-12 form-group">
+                            <input type="text" class="form-control" id="username" name="username" placeholder="Username"
+                                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <input type="text" class="form-control" id="hoten" name="hoten" placeholder="Full name"
+                                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <input type="text" class="form-control" id="gmail" name="gmail" placeholder="Email Address"
+                                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address'">
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <input type="text" class="form-control" id="password" name="password" placeholder="Password"
+                                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <input type="text" class="form-control" id="confirmPassword" name="confirmPassword"
+                                placeholder="Confirm Password" onfocus="this.placeholder = ''"
+                                onblur="this.placeholder = 'Confirm Password'">
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <div class="form-group">
+                                <input type="file" name="image" class="input-group input-file" />
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <div class="creat_account">
+                                <input type="checkbox" id="f-option2" name="selector">
+                                <label for="f-option2">Keep me logged in</label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 form-group">
+                            <button type="submit" value="submit" class="button button-register w-100">Register</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================End Register Box Area =================-->
